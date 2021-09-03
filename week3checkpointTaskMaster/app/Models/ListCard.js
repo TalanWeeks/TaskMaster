@@ -1,11 +1,11 @@
 import { generateId } from "../Utils/generateId.js";
 
 
-export class TaskCard{
-  constructor(taskData){
-    this.id= taskData.id || generateId()
-    this.name= taskData.name 
-    this.color= taskData.color 
+export class ListCard{
+  constructor(listData){
+    this.id= listData.id || generateId()
+    this.name= listData.name 
+    this.color= listData.color 
   }
 
   get CardTemplate() {
