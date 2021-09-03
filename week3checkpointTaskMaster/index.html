@@ -20,7 +20,7 @@
 <body>
   <header>
     <div class="text-center bg-dark text-light">
-      <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""loading="lazy">
+      <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt="">
       <h2>Task Master</h2>
     </div>
       
@@ -32,26 +32,27 @@
       <div class="row">
         <div class="col-lr-6">
     <!-- TODO tie form to controller -->
-          <form onsubmit="">
+          <form onsubmit="app.listCardsController.createTaskCard()">
             <div class="form-group p-3">
               <label class="visually-hidden"for="listName">List Name</label>
 
-              <input type="text" name= "form-group" 
+              <input type="text" name= "name" 
               placeholder="List Name..." 
               min="3" max="15" required>
 
     <!-- TODO make these colors change bg-color of cards -->
               <span><b>Color:</b></span>
-              <select name="color" id="color">
-                <option value="blue">Blue</option>
-                <option value="red">Red</option>
-                <option value="green">Green</option>
-                <option value="yellow">Yellow</option>
-                <option value="purple">Purple</option>
+              <select name="color" id="color" required>
+                <option value="">Options</option>
+                <option value="primary">Blue</option>
+                <option value="danger">Red</option>
+                <option value="success">Green</option>
+                <option value="warning">Yellow</option>
+                <option value="secondary">Gray</option>
               </select>
 
      <!-- TODO tie my function that draws task cards to screen -->
-              <button onsubmit="" class="btn btn-info">Create</button>
+              <button type="submit" class="btn btn-info">Create</button>
             </div>
           </form>
         </div>
@@ -59,8 +60,8 @@
     </div>
 
 <!-- SECTION TASK CARD  -->
-    
-    <div id="taskCard">
+
+    <div class= "row container-fluid" id="task-card">
       <!-- task cards html is put in this section -->
     </div>
     
