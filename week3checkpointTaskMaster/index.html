@@ -31,16 +31,12 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-lr-6">
-    <!-- TODO tie form to controller -->
           <form onsubmit="app.listCardsController.createTaskCard()">
             <div class="form-group p-3">
               <label class="visually-hidden"for="listName">List Name</label>
 
-              <input type="text" name= "name" 
-              placeholder="List Name..." 
-              min="3" max="15" required>
+              <input type="text" name= "name" placeholder="List Name..." minlength="3" maxlength="15" required>
 
-    <!-- TODO make these colors change bg-color of cards -->
               <span><b>Color:</b></span>
               <select name="color" id="color" required>
                 <option value="">Options</option>
@@ -50,9 +46,7 @@
                 <option value="warning">Yellow</option>
                 <option value="secondary">Gray</option>
               </select>
-
-     <!-- TODO tie my function that draws task cards to screen -->
-              <button type="submit" class="btn btn-info">Create</button>
+              <button type="submit" class="btn btn-warning">Create</button>
             </div>
           </form>
         </div>

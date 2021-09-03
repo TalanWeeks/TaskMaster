@@ -26,11 +26,14 @@ export class ListCardsController{
       let form = event.target
       
       let listData = {
+        //@ts-ignore
         name: form.name.value,
+        //@ts-ignore
         color: form.color.value,
       }
 
       listCardsService.addListCard(listData)
+        //@ts-ignore
       form.reset()
     }
   
