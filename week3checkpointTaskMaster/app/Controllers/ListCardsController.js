@@ -1,5 +1,6 @@
 import { ProxyState } from "../AppState.js";
 import { listCardsService } from "../Services/ListCardsService.js";
+import { generateId } from "../Utils/generateId.js";
 
 
 function _drawTaskCard(){
@@ -21,7 +22,7 @@ export class ListCardsController{
       listCardsService.addListCard(listData)
     }
     
-    createTaskCard(){
+    createTaskCard(listDataId){
       event.preventDefault()
       let form = event.target
       
@@ -30,6 +31,8 @@ export class ListCardsController{
         name: form.name.value,
         //@ts-ignore
         color: form.color.value,
+
+        id: generateId()
       }
 
       listCardsService.addListCard(listData)
