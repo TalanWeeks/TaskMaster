@@ -35,8 +35,8 @@ function _drawTask(){
 
   let tasks = ProxyState.tasks;
   let taskTemplate = ''
-debugger
-  tasks.forEach(task => taskTemplate += task.tasksTemplate)
+
+  tasks.forEach(task => taskTemplate += task.taskTemplate)
   document.getElementById("tasks").innerHTML= taskTemplate
 }
 

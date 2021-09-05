@@ -4,8 +4,7 @@ import { ProxyState } from "../AppState.js"
 
 export class Task{
   constructor(taskData){
-    this.name = taskData.name 
-    
+    this.name = taskData.name     
     this.id = taskData.id || generateId()
   }
   

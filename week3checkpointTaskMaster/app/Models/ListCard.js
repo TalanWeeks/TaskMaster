@@ -10,7 +10,7 @@ export class ListCard{
 
   get listTemplate() {
     return /*html*/`
-<div class="col-4 text-center">
+<div class="col-4 ">
   <div class="card">
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
     <h3 class= "bg-${this.color} text-light text-center p-3">${this.name}</h3>

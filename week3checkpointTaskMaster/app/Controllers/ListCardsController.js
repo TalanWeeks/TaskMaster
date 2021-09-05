@@ -6,7 +6,7 @@ import { generateId } from "../Utils/generateId.js";
 function _drawTaskCard(){
   let listCards = ProxyState.lists;
   let listTemplate = ''
-
+  
   listCards.forEach(list => listTemplate += list.listTemplate)
   document.getElementById("task-card").innerHTML= listTemplate
 }
