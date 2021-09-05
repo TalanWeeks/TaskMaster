@@ -1,14 +1,15 @@
 import { generateId } from "../Utils/generateId.js"
+import { ProxyState } from "../AppState.js"
 
 
 export class Task{
   constructor(taskData){
     this.name = taskData.name 
-    this.taskId = taskData.taskId
+    
     this.id = taskData.id || generateId()
   }
   
-  get Template(){
+  get taskTemplate(){
     return /*html*/`
     <ul>
       <li> ${this.name} </li>

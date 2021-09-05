@@ -14,8 +14,8 @@ export class ListCard{
   <div class="card">
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
     <h3 class= "bg-${this.color} text-light text-center p-3">${this.name}</h3>
-    <div class="row" id="tasks">
-      <span></span>
+    <div class="col-12" id="tasks" >
+      
     </div>
       <form onsubmit="app.tasksController.createTask('${this.id}')">
         <div class="form-group p-3">
@@ -33,18 +33,6 @@ export class ListCard{
 
   }
 
-  get Tasks(){
-    let template = ''
-
-    
-    console.log("tasks in proxy",ProxyState.tasks)
-    console.log("lists in proxy",ProxyState.lists)
-    let foundTasks = ProxyState.tasks.filter(t => t.listId == this.id)
-    console.log('after filter', foundTasks)
-    foundTasks.forEach(t => template += t.Template)
-    return template
-   
-    
-  }
+  
 }
 

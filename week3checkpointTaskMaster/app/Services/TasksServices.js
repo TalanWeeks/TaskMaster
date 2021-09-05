@@ -5,7 +5,7 @@ class TasksServices{
 
   addTask(taskData){
     ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
-    console.log("hello from TasksServices", (taskData))
+    console.log("hello from TasksServices", ProxyState.tasks)
 
   }
 }
