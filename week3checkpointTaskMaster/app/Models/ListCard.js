@@ -15,7 +15,7 @@ export class ListCard{
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
     <h3 class= "bg-${this.color} text-light text-center p-3">${this.name}</h3>
     <div class="col-12" id="tasks" >
-    
+    ${this.Tasks}
       
     </div>
       <form onsubmit="app.tasksController.createTask('${this.id}')">
@@ -33,7 +33,14 @@ export class ListCard{
     `
 
   }
-  
-  
-}
+  get Tasks(){
+    let taskTemplate = ''
 
+    debugger
+    let foundTasks = ProxyState.tasks.filter(t => t.id == this.id)
+    console.log('after filter', foundTasks)
+    foundTasks.forEach(task => taskTemplate += task.taskTemplate)
+    return taskTemplate
+  
+  }
+}

@@ -12,7 +12,7 @@ export class TasksController{
     createTask(listId){      
       event.preventDefault()
       let form = event.target
-      debugger
+      
       let taskData = {
         //@ts-ignore
         name: form.name.value,
