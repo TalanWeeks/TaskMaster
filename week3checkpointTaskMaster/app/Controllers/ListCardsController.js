@@ -39,4 +39,15 @@ export class ListCardsController{
       form.reset()
     }
   
+      deleteItem(listDataId){
+        listCardsService.deleteItem(listDataId)
+        // @ts-ignore
+          Swal.fire({
+            position: 'top-end',
+            icon: 'success',
+            title: 'Your expensive food is delorted',
+            showConfirmButton: false,
+            timer: 1500
+          })
+         }
 }

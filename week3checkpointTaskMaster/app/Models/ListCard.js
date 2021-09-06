@@ -3,18 +3,23 @@ import { ProxyState } from "../AppState.js"
 
 export class ListCard{
   constructor(listData){
-    this.id= listData.id || generateId()
     this.name= listData.name 
+    this.id= listData.id || generateId()
     this.color= listData.color 
   }
 
   get listTemplate() {
     return /*html*/`
-<div class="col-4 ">
+  <div class="col-lg-5 p-0 shadow">
   <div class="card">
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
-    <h3 class= "bg-${this.color} text-light text-center p-3">${this.name}</h3>
-    <div class="col-12" id="tasks" >
+    <div class="d-flex justify-content-between align-items-center bg-${this.color}">
+    <h3 class= " text-light text-center p-3">${this.name}</h3>
+    <i class="mdi mdi-delete mdi-36px text-dark selectable"
+    onclick="app.listCardsController.deleteItem('${this.id}')"></i>
+    </div>
+    <h6 id="checked-var"></h6>
+    <div class="col-lg-12" id="tasks" >
     ${this.Tasks}
       
     </div>
@@ -23,7 +28,7 @@ export class ListCard{
           <label class="visually-hidden"for="taskName">Task Name</label>
           <input type="text" name= "name" 
           placeholder="Add Task..." 
-          min="3" max="50" required>
+          minlength="3" maxlength="50" required>
           <button type="submit" class="btn btn-warning">+</button>
         </div>
       </form>
@@ -36,7 +41,7 @@ export class ListCard{
   get Tasks(){
     let taskTemplate = ''
 
-    debugger
+   
     let foundTasks = ProxyState.tasks.filter(t => t.id == this.id)
     console.log('after filter', foundTasks)
     foundTasks.forEach(task => taskTemplate += task.taskTemplate)

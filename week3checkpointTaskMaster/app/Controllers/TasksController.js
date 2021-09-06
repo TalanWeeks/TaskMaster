@@ -4,6 +4,8 @@ import { tasksService } from "../Services/TasksServices.js"
 
 export class TasksController{
   constructor(){
+    const cb = document.getElementById('checked');
+    console.log(cb);
   }
 
   addTask(taskData){
@@ -28,7 +30,7 @@ export class TasksController{
 
 
 
-// NOTE TESETER
+// NOTE TESTER
 
 
 // function _drawTask(){
