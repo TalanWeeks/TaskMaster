@@ -2,70 +2,70 @@ import { ProxyState } from "../AppState.js"
 import { tasksService } from "../Services/TasksServices.js"
 
 
-// export class TasksController{
-//   constructor(){
-//   }
+export class TasksController{
+  constructor(){
+  }
 
-//   addTask(taskData){
-//     tasksService.addTask(taskData)
-//   }
-//     createTask(listId){      
-//       event.preventDefault()
-//       let form = event.target
-
-//       let taskData = {
-//         //@ts-ignore
-//         name: form.name.value,
-//         listId: listId
+  addTask(taskData){
+    tasksService.addTask(taskData)
+  }
+    createTask(listId){      
+      event.preventDefault()
+      let form = event.target
+      debugger
+      let taskData = {
+        //@ts-ignore
+        name: form.name.value,
+        id: listId
         
-//       }
-//     tasksService.addTask(taskData)
-//     console.log('task creation', ProxyState.tasks)
-//     //@ts-ignore
-//     form.reset()
-//   }
-// }
+      }
+    tasksService.addTask(taskData)
+    console.log('task creation', ProxyState.tasks)
+    //@ts-ignore
+    
+  }
+}
 
 
 
 // NOTE TESETER
 
 
-function _drawTask(){
+// function _drawTask(){
 
-  let tasks = ProxyState.tasks;
-  let taskTemplate = ''
+//   let tasks = ProxyState.tasks;
+//   let taskTemplate = ''
 
-  tasks.forEach(task => taskTemplate += task.taskTemplate)
-  document.getElementById("tasks").innerHTML= taskTemplate
-}
+//   tasks.forEach(task => taskTemplate += task.taskTemplate)
+//   document.getElementById("tasks").innerHTML= taskTemplate
+// }
 
-export class TasksController{
+// export class TasksController{
 
-  constructor(){
-    ProxyState.on("tasks",_drawTask);
+//   constructor(){
+//     ProxyState.on("tasks",_drawTask);
    
-  }
+//   }
 
-    addListCard(taskData){
-      tasksService.addTask(taskData)
-    }
+//     addListCard(taskData){
+//       tasksService.addTask(taskData)
+//     }
     
-    createTask(listDataId){
-      event.preventDefault()
-      let form = event.target
+//     createTask(listDataId){
+//       event.preventDefault()
+//       let form = event.target
       
-      let taskData = {
-        //@ts-ignore
-        name: form.name.value,
-        //@ts-ignore        
+//       let taskData = {
+//         //@ts-ignore
+//         name: form.name.value,
+//         //@ts-ignore        
 
-        id: listDataId
-      }
+//         id: listDataId
+//       }
 
-      tasksService.addTask(taskData)      
-        //@ts-ignore
-      form.reset()
-    }
+//       tasksService.addTask(taskData)      
+//         //@ts-ignore
+//       form.reset()
+//     }
   
-}
+// }

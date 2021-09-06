@@ -6,7 +6,6 @@ import { generateId } from "../Utils/generateId.js";
 function _drawTaskCard(){
   let listCards = ProxyState.lists;
   let listTemplate = ''
-  
   listCards.forEach(list => listTemplate += list.listTemplate)
   document.getElementById("task-card").innerHTML= listTemplate
 }
@@ -15,6 +14,7 @@ export class ListCardsController{
 
   constructor(){
     ProxyState.on("lists",_drawTaskCard);
+    ProxyState.on("tasks",_drawTaskCard);
     _drawTaskCard()
   }
 
@@ -31,7 +31,6 @@ export class ListCardsController{
         name: form.name.value,
         //@ts-ignore
         color: form.color.value,
-
         id: generateId()
       }
 
