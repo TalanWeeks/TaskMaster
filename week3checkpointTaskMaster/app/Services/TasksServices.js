@@ -12,6 +12,15 @@ class TasksServices{
     console.log("hello from TasksServices", ProxyState.tasks)
   }
 
+  deleteTask(listDataId){
+    console.log("listcardsserveices delete",listDataId)    
+    
+    ProxyState.tasks = ProxyState.tasks.filter(task => task.id !== listDataId)
+    ProxyState.tasks = ProxyState.tasks
+    console.log("ProxyState.tasks", ProxyState.tasks)
+    
+  }
+
   // checkedOrNot(){
   //   debugger
   //   var checkBox = document.getElementsByClassName("checked");

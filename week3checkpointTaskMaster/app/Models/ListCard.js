@@ -16,7 +16,7 @@ export class ListCard{
     <div class="d-flex justify-content-between align-items-center bg-${this.color}">
     <h3 class= " text-light text-center p-3">${this.name}</h3>
     <i class="mdi mdi-delete mdi-36px text-dark selectable"
-    onclick="app.listCardsController.deleteItem('${this.id}')"></i>
+    onclick="app.listCardsController.deleteList('${this.id}')"></i>
     </div>
     <h6 id="checked-var"></h6>
     <div class="col-lg-12" id="tasks" >
@@ -40,7 +40,6 @@ export class ListCard{
   }
   get Tasks(){
     let taskTemplate = ''
-
    
     let foundTasks = ProxyState.tasks.filter(t => t.id == this.id)
     console.log('after filter', foundTasks)

@@ -23,8 +23,18 @@ export class TasksController{
       }
     tasksService.addTask(taskData)
     console.log('task creation', ProxyState.tasks)
-    //@ts-ignore
-    
+    //@ts-ignore    
+  }
+  deleteTask(listDataId){
+    tasksService.deleteTask(listDataId)
+    // @ts-ignore
+    // Swal.fire({
+    //   position: 'top-end',
+    //   icon: 'success',
+    //   title: 'Your expensive food is delorted',
+    //   showConfirmButton: false,
+    //   timer: 1500
+    // })
   }
 }
 

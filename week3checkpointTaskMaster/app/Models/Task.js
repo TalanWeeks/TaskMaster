@@ -6,7 +6,7 @@ import { tasksService } from "../Services/TasksServices.js"
 export class Task{
   constructor(taskData){
     this.name = taskData.name     
-    this.id = taskData.id
+    this.id = taskData.id ||generateId()
 
     
   }
@@ -20,7 +20,7 @@ export class Task{
         <input type="checkbox" id="checked" class="checked" value='1' onclick="app.tasksService.checkedOrNot()">
       <label class="p-2"for="task">${this.name}</label>
       <i class="mdi mdi-delete mdi-16px text-dark selectable"
-      onclick="app.listCardsController.deleteItem('${this.id}')"></i>
+      onclick="app.tasksController.deleteTask('${this.id}')"></i>
     </div>
     `
   }

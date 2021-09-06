@@ -39,8 +39,8 @@ export class ListCardsController{
       form.reset()
     }
   
-      deleteItem(listDataId){
-        listCardsService.deleteItem(listDataId)
+      deleteList(listDataId){
+        listCardsService.deleteList(listDataId)
         // @ts-ignore
           Swal.fire({
             position: 'top-end',
