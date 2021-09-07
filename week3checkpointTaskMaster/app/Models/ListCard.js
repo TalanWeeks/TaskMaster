@@ -11,7 +11,7 @@ export class ListCard{
   get listTemplate() {
     return /*html*/`
   <div class="col-lg-5 p-0 m-2 shadow">
-  <div class="card  text-light bg-dark">
+  <div class="card border-dark text-light bg-dark">
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
     <div class="d-flex justify-content-between align-items-center bg-${this.color}">
     <h3 class= " text-light text-center p-3">${this.name}</h3>

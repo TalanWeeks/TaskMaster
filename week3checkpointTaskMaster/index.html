@@ -18,13 +18,13 @@
 
 
 <body>
-  <header>
-    <div class="text-center bg-dark text-light p-2">
-      <img src="https://pyxis.nymag.com/v1/imgs/b18/0c8/e2fc666733c5bf420e9720b6d26f0339c4.2x.rsquare.w600.jpg" height="60" alt="">
+  <header class="gradient-custom-borders">
+    <div class="text-center text-light p-2">
+      <!-- <img src="https://pyxis.nymag.com/v1/imgs/b18/0c8/e2fc666733c5bf420e9720b6d26f0339c4.2x.rsquare.w600.jpg" height="60" alt=""> -->
       <h2 class="m-0 p-2">Task Master</h2>
     </div>      
   </header>
-  <main>
+  <main class="gradient-custom">
 
 <!-- SECTION LIST FORM INPUT  -->
     <div class="container-fluid ">
@@ -45,7 +45,7 @@
                 <option value="warning">Yellow</option>
                 <option value="secondary">Gray</option>
               </select>
-              <button type="submit" class="btn btn-warning">Create</button>
+              <button type="submit" class="my-2 btn btn-warning">Create</button>
             </div>
           </form>
         </div>
@@ -60,16 +60,16 @@
     </div>
 
     <div class="row container-fluid">
-      <div class="col-12 text-center my-3 visually-hidden" id="delete-storage">
+      <div class="col-12 text-center my-3 " id="delete-storage">
         <button type="submit" class="btn btn-danger" onclick="app.tasksController.deleteStorage()">Delete All Lists</button>
       </div>
     </div>
     
    
     
-        </main>
-        <footer class="bg-dark text-light">
-    <div class="text-center no-select">
+  </main>
+  <footer class="gradient-custom-borders">
+    <div class="text-center text-light no-select">
       <p><small>Made with 💖 by Talan Weeks</small></p>
     </div>
   </footer>
