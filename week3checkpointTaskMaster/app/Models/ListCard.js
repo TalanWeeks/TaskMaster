@@ -10,11 +10,12 @@ export class ListCard{
 
   get listTemplate() {
     return /*html*/`
-  <div class="col-lg-5 p-0 shadow">
-  <div class="card">
+  <div class="col-lg-5 p-0 m-2 shadow">
+  <div class="card  text-light bg-dark">
 <!-- TODO probably use a ternary to get the bg-color of the title to change with to whatever user selects (this.color) -->
     <div class="d-flex justify-content-between align-items-center bg-${this.color}">
     <h3 class= " text-light text-center p-3">${this.name}</h3>
+    <h3></h3>
     <i class="mdi mdi-delete mdi-36px text-dark selectable"
     onclick="app.listCardsController.deleteList('${this.id}')"></i>
     </div>
@@ -23,7 +24,7 @@ export class ListCard{
     ${this.Tasks}
       
     </div>
-      <form onsubmit="app.tasksController.createTask('${this.id}')">
+      <form onsubmit="app.tasksController.createTask('${this.id}','${this.color}')">
         <div class="form-group p-3">
           <label class="visually-hidden"for="taskName">Task Name</label>
           <input type="text" name= "name" 
@@ -34,6 +35,7 @@ export class ListCard{
       </form>
   </div>          
 </div>
+
 
     `
 

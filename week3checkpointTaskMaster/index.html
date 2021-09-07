@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en"  class="bg-warning">
 
 <head>
   <meta charset="UTF-8">
@@ -19,16 +19,15 @@
 
 <body>
   <header>
-    <div class="text-center bg-dark text-light">
-      <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt="">
-      <h2>Task Master</h2>
-    </div>
-      
+    <div class="text-center bg-dark text-light p-2">
+      <img src="https://pyxis.nymag.com/v1/imgs/b18/0c8/e2fc666733c5bf420e9720b6d26f0339c4.2x.rsquare.w600.jpg" height="60" alt="">
+      <h2 class="m-0 p-2">Task Master</h2>
+    </div>      
   </header>
   <main>
 
 <!-- SECTION LIST FORM INPUT  -->
-    <div class="container-fluid">
+    <div class="container-fluid ">
       <div class="row">
         <div class="col-lr-6">
           <form onsubmit="app.listCardsController.createTaskCard()">
@@ -55,8 +54,15 @@
 
 <!-- SECTION TASK CARD  -->
 
+
     <div class= "row container-fluid" id="task-card">
       <!-- task cards html is put in this section -->
+    </div>
+
+    <div class="row container-fluid">
+      <div class="col-12 text-center my-3 visually-hidden" id="delete-storage">
+        <button type="submit" class="btn btn-danger" onclick="app.tasksController.deleteStorage()">Delete All Lists</button>
+      </div>
     </div>
     
    
@@ -64,7 +70,7 @@
         </main>
         <footer class="bg-dark text-light">
     <div class="text-center no-select">
-      <p><small>Made with 💖 by Codeworks</small></p>
+      <p><small>Made with 💖 by Talan Weeks</small></p>
     </div>
   </footer>
   
@@ -72,8 +78,6 @@
     integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
     crossorigin="anonymous"></script>
   <script src="app/main.js" type="module"></script>
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
-
-
-
 </html>

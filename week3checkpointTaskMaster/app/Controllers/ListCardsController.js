@@ -33,21 +33,34 @@ export class ListCardsController{
         color: form.color.value,
         id: generateId()
       }
-
+      
+      document.getElementById("delete-storage").classList.remove("visually-hidden")
       listCardsService.addListCard(listData)
         //@ts-ignore
       form.reset()
     }
   
       deleteList(listDataId){
-        listCardsService.deleteList(listDataId)
-        // @ts-ignore
+        console.log("does it make it to here?")
+          //@ts-ignore 
           Swal.fire({
-            position: 'top-end',
-            icon: 'success',
-            title: 'Your expensive food is delorted',
-            showConfirmButton: false,
-            timer: 1500
-          })
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then((result) => {
+          if (result.isConfirmed) {
+            //@ts-ignore 
+            Swal.fire(
+              'Deleted!',
+              'Your list has been deleted.',
+              'success'
+              )
+              listCardsService.deleteList(listDataId)
+          }
+        })
          }
 }

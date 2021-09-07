@@ -6,32 +6,42 @@ class TasksServices{
 
   constructor(){
     ProxyState.on("tasks",saveState)
+    
   }
   addTask(taskData){
     ProxyState.tasks = [...ProxyState.tasks, new Task(taskData)]
     console.log("hello from TasksServices", ProxyState.tasks)
   }
 
-  deleteTask(listDataId){
-    console.log("listcardsserveices delete",listDataId)    
+  deleteTask(taskId){
+    console.log("listcardsserveices delete",taskId)    
     
-    ProxyState.tasks = ProxyState.tasks.filter(task => task.id !== listDataId)
+    ProxyState.tasks = ProxyState.tasks.filter(task => task.taskId !== taskId)
     ProxyState.tasks = ProxyState.tasks
     console.log("ProxyState.tasks", ProxyState.tasks)
     
   }
 
-  // checkedOrNot(){
-  //   debugger
-  //   var checkBox = document.getElementsByClassName("checked");
-  //   var checkedVar = document.getElementById("checked-var");
+  checkTasks(taskId){
+    let task = ProxyState.tasks.find(t => taskId == t.taskId)
+    console.log('this is the task found checked',task);
+    task.checked = !task.checked;
+ 
+    ProxyState.tasks = ProxyState.tasks
+  }
 
-  //   if (checkBox.checked == true){
-  //     checkedVar.innerText = "1"
-  //   } else{
-  //     checkedVar.innerText = "0"
-  //   }
-  // }
+  deleteStorage(){
+    localStorage.clear()
+  }
+
+  checkedOrNot(taskData){
+
+    console.log("hello from checked or not")
+    taskData.checked = true
+    let checkedTasks=[]
+    checkedTasks = ProxyState.tasks.filter(task => task.checked == true)  
+    console.log(checkedTasks)  
+  }
 
 }
 

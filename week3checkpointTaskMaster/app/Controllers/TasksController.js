@@ -4,12 +4,23 @@ import { tasksService } from "../Services/TasksServices.js"
 
 export class TasksController{
   constructor(){
-    const cb = document.getElementById('checked');
-    console.log(cb);
+    // const cb = document.getElementById('checked');
+    // console.log(cb);
   }
 
   addTask(taskData){
     tasksService.addTask(taskData)
+  }
+
+  checkTasks(taskId){
+   tasksService.checkTasks(taskId) 
+    
+  }
+
+  deleteStorage(){
+    tasksService.deleteStorage()
+    //@ts-ignore
+    window.location.reload(true)
   }
     createTask(listId){      
       event.preventDefault()
@@ -18,23 +29,39 @@ export class TasksController{
       let taskData = {
         //@ts-ignore
         name: form.name.value,
-        id: listId
+        id: listId,
+        checked: false
+        
         
       }
     tasksService.addTask(taskData)
     console.log('task creation', ProxyState.tasks)
     //@ts-ignore    
   }
+
+  
   deleteTask(listDataId){
-    tasksService.deleteTask(listDataId)
-    // @ts-ignore
-    // Swal.fire({
-    //   position: 'top-end',
-    //   icon: 'success',
-    //   title: 'Your expensive food is delorted',
-    //   showConfirmButton: false,
-    //   timer: 1500
-    // })
+    //@ts-ignore 
+    Swal.fire({
+      title: 'Are you sure?',
+      text: "You won't be able to revert this!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Yes, delete it!'
+    }).then((result) => {
+      if (result.isConfirmed) {
+    //@ts-ignore 
+
+        Swal.fire(
+          'Deleted!',
+          'Your task has been deleted.',
+          'success'
+        )
+        tasksService.deleteTask(listDataId) 
+      }
+    })
   }
 }
 
